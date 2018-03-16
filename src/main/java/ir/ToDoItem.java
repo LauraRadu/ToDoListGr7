@@ -38,6 +38,23 @@ public class ToDoItem {
     private String name;
     private int done;
 
+    public ToDoItem(long id, String name, int prioritytask) {
+        this.id = id;
+        this.name = name;
+        this.prioritytask = prioritytask;
+    }
+
+    public int getPrioritytask() {
+        return prioritytask;
+
+    }
+
+    public void setPrioritytask(int prioritytask) {
+        this.prioritytask = prioritytask;
+    }
+
+    private int prioritytask;
+
 
 
 }

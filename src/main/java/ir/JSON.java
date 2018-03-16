@@ -27,6 +27,110 @@ public class JSON extends HttpServlet {
             write(req, resp);
         else if (action != null && action.equals("markdone"))
             markdone(req, resp);
+        else if (action != null && action.equals("viewDone"))
+            viewDone(req, resp);
+        else if (action != null && action.equals("markundone"))
+            markundone(req, resp);
+        else if (action != null && action.equals("markpriority"))
+            markpriority(req, resp);
+        else if (action != null && action.equals("unmarkpriority"))
+            unmarkpriority(req, resp);
+
+    }
+
+    private void unmarkpriority(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        int idtask = Integer.parseInt(id);
+
+        int fkuser=-1;
+
+        HttpSession s = req.getSession();
+        Object o = s.getAttribute("userid");
+        if(o!=null){
+            fkuser=(Integer)o;
+        }
+
+        if(fkuser!=-1) {
+            SingleListPersons listOfNames = new SingleListPersons();
+            try {
+                listOfNames.unmarkPriority(idtask, fkuser);
+            } catch (ClassNotFoundException e) {
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void markpriority (HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        int idtask = Integer.parseInt(id);
+
+        int fkuser=-1;
+
+        HttpSession s = req.getSession();
+        Object o = s.getAttribute("userid");
+        if(o!=null){
+            fkuser=(Integer)o;
+        }
+
+        if(fkuser!=-1) {
+            SingleListPersons listOfNames = new SingleListPersons();
+            try {
+                listOfNames.markPriority(idtask, fkuser);
+            } catch (ClassNotFoundException e) {
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void markundone(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("id");
+        int idtask = Integer.parseInt(id);
+
+        int fkuser=-1;
+
+        HttpSession s = req.getSession();
+        Object o = s.getAttribute("userid");
+        if(o!=null){
+            fkuser=(Integer)o;
+        }
+
+        if(fkuser!=-1) {
+            SingleListPersons listOfNames = new SingleListPersons();
+            try {
+                listOfNames.markUndone(idtask, fkuser);
+            } catch (ClassNotFoundException e) {
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    private void viewDone(HttpServletRequest req, HttpServletResponse resp) {
+        SingleListPersons listQA = new SingleListPersons();
+
+        int iduser=-1;
+
+        HttpSession s = req.getSession();
+        Object o = s.getAttribute("userid");
+        if(o!=null){
+            iduser=(Integer)o;
+        }
+
+        JSONObject json = new JSONObject();
+        try {
+            json.put("done", listQA.getListOfDone(iduser));
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        returnJsonResponse(resp, json.toString());
     }
 
     private void markdone(HttpServletRequest req, HttpServletResponse resp) {
@@ -44,11 +148,8 @@ public class JSON extends HttpServlet {
         }
 
         if(fkuser!=-1) {
-
             SingleListPersons listOfNames = new SingleListPersons();
             try {
-
-
                 listOfNames.markDone(idtask, fkuser);
             } catch (ClassNotFoundException e) {
 
@@ -56,7 +157,6 @@ public class JSON extends HttpServlet {
                 e.printStackTrace();
             }
         }
-
     }
 
     private void read(HttpServletRequest req, HttpServletResponse resp) {

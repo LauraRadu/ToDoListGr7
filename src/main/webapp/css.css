@@ -1,61 +1,155 @@
-
-#listQA{
-
-    color: darkred;
-    font-style: italic;
-    font-size: larger;
-    padding-left: 30%;
-    padding-top: 40px;
-    font-weight: bold;
-    line-height: 1.6;
-}
-
-#altaIntrebare{
-    padding-left: 40%;
-    font-weight: bold;
-    color: darkslategrey;
-    padding-top: 30px;
-    padding-bottom: 20px;
-    font-size: 150%;
-    margin: auto;
-
-}
-
-#sendSomething {
-    opacity: 1;
-    padding-left: 40%;
-    margin: auto;
-
-}
-
-.imageContent {
-    height: 200px;
-}
-
-#alertMessage {
-    color: darkred;
-    font-size: 200%;
-    font-weight: bold;
-}
-
 body {
     width: 100%;
     height: 100%;
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB46GuUoNdAuNbGHUTaer9a_bx7YWIoeqJZoeAgHHQ1Y9vWi3B3A") ;
     background-size: 100%;
+    font-family:"Arial Rounded MT Bold" ;
+    padding-left: 10%;
 }
 
-#left {
-    float: left;
-    width: 23%;
-    margin-left: 0px;
-    margin-top: 0px;
-    padding-right: 5%;
-    height: 240%;
-    background-image:  url("http://www.aktual24.ro/wp-content/uploads/2017/01/iordache2-610x300.png");
-    background-size: 100%;
+#newtodo {
+    padding-left: 4%;
+}
+
+#welcome{
+    padding-top: 2%;
+    color: #2e289f;
+    padding-bottom: 2%;
+    padding-left: 25%;
+
+}
+
+#alertMessage {
+    color: darkred;
+    font-size: 120%;
+    font-weight: bold;
 }
 
 #add {
     cursor: hand;
+}
+
+li {
+    background-color: whitesmoke;
+    width: 500px;
+    margin: 2px;
+    list-style-type: none;
+    padding: 0.8%;
+    font-size: large;
+}
+
+#listDone{
+    text-decoration-line: line-through;
+    opacity: 0.8;
+}
+
+#doneTasks {
+    font-size: larger;
+    font-weight: bold;
+    color: #2e289f;
+}
+
+#logout {
+    padding-top: 2%;
+    padding-bottom: 3%;
+}
+
+#star-five {
+    margin: 5px 0;
+    position: relative;
+    display: block;
+    color: red;
+    width: 0px;
+    height: 0px;
+    border-right:  10px solid transparent;
+    border-bottom: 7px  solid red;
+    border-left:   10px solid transparent;
+    -moz-transform:    rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -ms-transform:     rotate(35deg);
+    -o-transform:      rotate(35deg);
+}
+#star-five:before {
+    border-bottom: 8px solid red;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -4.5px;
+    left: -6.5px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform:    rotate(-35deg);
+    -ms-transform:     rotate(-35deg);
+    -o-transform:      rotate(-35deg);
+
+}
+#star-five:after {
+    position: absolute;
+    display: block;
+    color: red;
+    top: 0.3px;
+    left: -10.5px;
+    width: 0px;
+    height: 0px;
+    border-right: 10px solid transparent;
+    border-bottom: 7px solid red;
+    border-left: 10px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform:    rotate(-70deg);
+    -ms-transform:     rotate(-70deg);
+    -o-transform:      rotate(-70deg);
+    content: '';
+}
+
+#star-five-prior {
+    margin: 5px 0;
+    position: relative;
+    display: block;
+    color: yellow;
+    width: 0px;
+    height: 0px;
+    border-right:  10px solid transparent;
+    border-bottom: 7px  solid yellow;
+    border-left:   10px solid transparent;
+    -moz-transform:    rotate(35deg);
+    -webkit-transform: rotate(35deg);
+    -ms-transform:     rotate(35deg);
+    -o-transform:      rotate(35deg);
+}
+#star-five-prior:before {
+    border-bottom: 8px solid yellow;
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -4.5px;
+    left: -6.5px;
+    display: block;
+    content: '';
+    -webkit-transform: rotate(-35deg);
+    -moz-transform:    rotate(-35deg);
+    -ms-transform:     rotate(-35deg);
+    -o-transform:      rotate(-35deg);
+
+}
+#star-five-prior:after {
+    position: absolute;
+    display: block;
+    color: yellow;
+    top: 0.3px;
+    left: -10.5px;
+    width: 0px;
+    height: 0px;
+    border-right: 10px solid transparent;
+    border-bottom: 7px solid yellow;
+    border-left: 10px solid transparent;
+    -webkit-transform: rotate(-70deg);
+    -moz-transform:    rotate(-70deg);
+    -ms-transform:     rotate(-70deg);
+    -o-transform:      rotate(-70deg);
+    content: '';
 }
